@@ -1,7 +1,7 @@
 import {ACTIONS} from './actions.js';
 
 const stack = [];
-let div = document.querySelector('.output-cont');
+let output = document.querySelector('.output-cont-textarea');
 let textArea = document.createElement('textarea');
 let selected = document.querySelector('.selected-icons');
 let controls = document.querySelector('.controls-cont');
@@ -79,7 +79,7 @@ function actionList(actions){
         });
         div.appendChild(temp);
     }
-    document.querySelector('.action-cont').appendChild(div);
+    document.querySelector('.action-cont-actions').appendChild(div);
 }
 
 function attachControls(ctrls = document.createElement('div')){
@@ -109,6 +109,5 @@ function attachControls(ctrls = document.createElement('div')){
 
 attachControls(controls);
 textArea.setAttribute('class','output');
-div.appendChild(textArea);
+output.appendChild(textArea);
 actionList(ACTIONS);
-document.querySelector('.tt').appendChild(div);

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Oswald','sans-serif';
 }
 body{
     width: 100vw;
@@ -12,33 +13,28 @@ body{
     width: 100vw;
     height: 60px;
     background-color: black;
-    color: white;
+    color: lightgray;
+    padding: 10px 20px;
+    font-size: 13px;
 }
 .app-cont{
     display: flex;
     justify-content: center;
     background-image: url('./assets/images/ADxJSLfrn5j4fKpZXHnya0M9Z8.jpg');
+    background-size: auto;
     background-position: center;
-    height: 100vh;
+    background-attachment: fixed;
+    height: fit-content;
     width: 100vw;
     padding: 2em;
 }
 .app-col{
     width: 600px;
 }
-.output{
-    max-width: 600px;
-    min-width: 600px;
-    min-height: 400px;
-    padding: 20px;
-    border: 1px solid lightgrey;
-    background-color: rgba(0,0,0,.8);
-    border-radius: 8px;
-    color: white;
-}
+
 .action-icon{
     height: 35px;
-    margin: 4px;
+    margin: 2.4px;
     cursor: pointer;
 }
 .action-cont{
@@ -47,16 +43,26 @@ body{
     border: 1px solid lightgrey;
     background-color: rgba(0,0,0,.8);
     border-radius: 8px;
-    padding: 20px;
-    padding-bottom: 30px;
+    padding: 10px 20px 30px 20px;
     margin-bottom: 20px;
 }
-.selected-icons{
+.cont-header{
+    color: lightgray;
+    width: 100%;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.action-cont-actions{
+    width: 100%;
+}
+
+.selected-icons-cont{
     width: 600px;
     border: 1px solid lightgrey;
     background-color: rgba(0,0,0,.8);
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px 20px 30px 20px;
     margin-bottom: 20px;
 }
 .name-display{
@@ -82,13 +88,32 @@ body{
     border: 1px solid lightgrey;
     background-color: black;
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     padding: 4px 12px;
     cursor: pointer;
 }
 .output-cont{
     max-width: 600px;
     min-width: 600px;
-    min-height: fit-content;
+    height: 470px;
     color: white;
+    border: 1px solid lightgrey;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 8px;
+    padding: 10px 20px 30px 20px;
+    margin-bottom: 20px;
+}
+
+.output{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 400px;
+    min-height: 400px;
+    padding: 20px;
+    border: none;
+    background-color: rgba(0,0,0,.0);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
 }

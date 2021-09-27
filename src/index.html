@@ -10,15 +10,23 @@
 </head>
 
 <body class="app">
-    <div class="nav-bar"></div>
+    <div class="nav-bar"><h1>FFXIV Crafting Macro Generator</h1></div>
     <div class="app-cont">
         <div class="app-col">
             <div class="action-cont">
+                <div class="cont-header"><p>Actions</p></div>
+                <div class="action-cont-actions"></div>
                 <div class="name-display"></div>
             </div>
-            <div class="selected-icons"></div>
+            <div class="selected-icons-cont">
+                <div class="cont-header"><p>Selected Actions</p></div>
+                <div class="selected-icons"></div>
+            </div>
             <div class="controls-cont"></div>
-            <div class="output-cont"></div>
+            <div class="output-cont">
+                <div class="cont-header"><p>Macro Output</p></div>
+                <div class="output-cont-textarea"></div>
+            </div>
         </div>
     </div>
     <script type="module" src="./main.js"></script>
