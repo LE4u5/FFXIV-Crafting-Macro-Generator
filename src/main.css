@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.nav-bar{
+    width: 100vw;
+    height: 60px;
+    background-color: black;
+    color: white;
+}
+.app-cont{
+    display: flex;
+    justify-content: center;
+    background-image: url('./assets/images/ADxJSLfrn5j4fKpZXHnya0M9Z8.jpg');
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 2em;
+}
+.app-col{
+    width: 600px;
+}
+.output{
+    max-width: 600px;
+    min-width: 600px;
+    min-height: 400px;
+    padding: 20px;
+    border: 1px solid lightgrey;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 8px;
+    color: white;
+}
+.action-icon{
+    height: 35px;
+    margin: 4px;
+    cursor: pointer;
+}
+.action-cont{
+    position: relative;
+    width: 600px;
+    border: 1px solid lightgrey;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 8px;
+    padding: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+.selected-icons{
+    width: 600px;
+    border: 1px solid lightgrey;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.name-display{
+    position: absolute;
+    color: white;
+    text-align: center;
+    height: 20px;
+    width: 200px;
+    right: 10px;
+    bottom: 10px;
+}
+.controls-cont{
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.controls-cont input{
+    margin: 0px 6px;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+.output-cont{
+    max-width: 600px;
+    min-width: 600px;
+    min-height: fit-content;
+    color: white;
+}
