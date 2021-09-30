@@ -86,25 +86,59 @@ function attachControls(ctrls = document.createElement('div')){
     let generate = document.createElement('input');
     let _delete = document.createElement('input');
     let clear = document.createElement('input');
+    let option = document.createElement('input');
+    let se_selection = document.createElement('div');
+    let se_msg = document.createElement('input');
+    let se_dropdown = document.createElement('select');
 
-    generate.setAttribute('value', 'Generate')
-    generate.setAttribute('type', 'button')
+    generate.setAttribute('value', 'Generate');
+    generate.setAttribute('type', 'button');
     generate.addEventListener('click',() => {
         textArea.innerHTML =`${generateMacro(stack)}`;
-    })
-    _delete.setAttribute('value', 'Delete')
-    _delete.setAttribute('type', 'button')
+    });
+    _delete.setAttribute('value', 'Delete');
+    _delete.setAttribute('type', 'button');
     _delete.addEventListener('click',() => {
         popOffStack(stack);
-    })
-    clear.setAttribute('value', 'Clear')
-    clear.setAttribute('type', 'button')
+    });
+    clear.setAttribute('value', 'Clear');
+    clear.setAttribute('type', 'button');
     clear.addEventListener('click',() => {
         clearStack(stack)
+    });
+
+    se_selection.setAttribute('class','se-selection-cont');
+    se_selection.innerHTML = '<label>Alert</label>'
+    se_msg.setAttribute('type','text');
+    se_msg.setAttribute('class','se-msg');
+    se_msg.value = 'Macro Finished!';
+    se_dropdown.setAttribute('id','se#');
+
+    se_dropdown.addEventListener('click',()=>{
+        console.log(se_dropdown.value);
     })
+
+    for(let i = 0; i < 16; i++ ){
+        let temp = document.createElement('option');
+        temp.setAttribute('value',`${i+1}`);
+        temp.innerHTML = i+1;
+        se_dropdown.appendChild(temp);
+    }
+
+    option.setAttribute('type','checkbox');
+    option.setAttribute('checked','');
+    option.setAttribute('class','ctrl-checkbox');
+    option.addEventListener('click',() =>{
+        console.log(option.checked);
+    })
+    se_selection.appendChild(option);
+    se_selection.appendChild(se_msg);
+    se_selection.appendChild(se_dropdown);
+
     ctrls.appendChild(generate);
     ctrls.appendChild(_delete);
     ctrls.appendChild(clear);
+    ctrls.appendChild(se_selection);
 }
 
 attachControls(controls);

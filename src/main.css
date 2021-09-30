@@ -89,8 +89,35 @@ body{
     background-color: black;
     color: white;
     font-weight: normal;
-    padding: 4px 12px;
+    padding: 4px 20px;
     cursor: pointer;
+}
+.se-selection-cont{
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,.8);
+    color: white;
+    font-size: 13px;
+    margin-left: 8px;
+    padding: 0px 20px;
+    width: 315px;
+    display: flex;
+    align-items: center;
+}
+.se-msg{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 20px;
+    border-radius: 4px !important;
+    font-size: 12px;
+}
+#se\#{
+    background-color: rgba(0,0,0,.8);
+    color: white;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    height: 20px;
+    padding: 0px 5px;
+    font-size: 12px;
 }
 .output-cont{
     max-width: 600px;

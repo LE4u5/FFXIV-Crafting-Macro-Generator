@@ -8,7 +8,8 @@
   },
   "author": "devdav",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "gulp": "^4.0.2"
   }
 }
