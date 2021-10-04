@@ -1,4 +1,4 @@
-import {ACTIONS} from './actions.js';
+import { ACTIONS } from './actions.js';
 
 const stack = [];
 let output = document.querySelector('.output-cont-textarea');
@@ -6,83 +6,100 @@ let textArea = document.createElement('textarea');
 let selected = document.querySelector('.selected-icons');
 let controls = document.querySelector('.controls-cont');
 
-function pushOnStack(action,stack){
+function pushOnStack(action, stack) {
     stack.push(action);
     setSelectedList();
 }
 
-function popOffStack(stack){
+function popOffStack(stack) {
     stack.pop();
     setSelectedList();
 }
 
-function clearStack(stack){
+function clearStack(stack) {
     length = stack.length
-    for(let i = 0; i < length; i++){
+    for (let i = 0; i < length; i++) {
         stack.pop();
     }
-    textArea.innerHTML =``;
+    textArea.innerHTML = ``;
     setSelectedList();
 }
 
-function generateMacro(actions){
-    let string =``;
+function generateMacro(actions) {
+    let alert = document.querySelector(".ctrl-checkbox").checked;
+    let string = ``;
     let line = 0
     let macroNum = 1;
-    for (let action of actions){
-        if(macroNum > 1 && line%15 === 0){string += '\n'}
-        if(line%15 === 0){string = string + `Macro #${macroNum}\n\n`;macroNum++}
+    let maxLines = 15;
+    if (alert === true) maxLines = 14;
+    for (let action of actions) {
+        if ((line % maxLines === 0 && maxLines === 14) && macroNum > 1) {
+            string += `/echo ${document.querySelector(".se-msg").value} <se.${document.querySelector('#se\\#').value}>\n`
+        }
+        if (macroNum > 1 && line % maxLines === 0) { string += `\n` }
+        if (line % maxLines === 0) { string = string + `Macro #${macroNum}\n\n`; macroNum++ }
         string = string + `/ac "${action.name}" <wait.${action.wait}>\n`
         line++;
     }
     return string;
 }
 
-function setSelectedList(){
-    selected.childNodes.forEach((n) =>{n.remove()});
+function setSelectedList() {
+    selected.childNodes.forEach((n) => { n.remove() });
     let cont = document.createElement('div');
-    for(let action of stack){
+    for (let action of stack) {
         let temp = document.createElement('img')
-        temp.setAttribute('src',`./assets/images/icons/${action.icon}`);
-        temp.setAttribute('alt',`${action.name}`);
-        temp.setAttribute('class',`action-icon`);
-        temp.addEventListener('click',()=>{
-            popOffStack(action,stack)
+        temp.setAttribute('src', `./assets/images/icons/${action.icon}`);
+        temp.setAttribute('alt', `${action.name}`);
+        temp.setAttribute('class', `action-icon`);
+        temp.addEventListener('click', () => {
+            popOffStack(action, stack)
         })
         cont.appendChild(temp);
     }
     selected.appendChild(cont);
 }
 
-function totalCP(actions){
+function totalCP(actions) {
     let cpTotal = 0;
-    for(let action of actions){
+    for (let action of actions) {
         cpTotal += action.cp;
     }
     return cpTotal
 }
 
-function actionList(actions){
+function actionList(actions) {
     let div = document.createElement('div');
-    for(let action of actions){
+    let synthesis = document.createElement('div');
+    let touch = document.createElement('div');
+    let other = document.createElement('div');
+    synthesis.innerHTML = `<div class='cont-header sub'>Synthesis</div>`
+    touch.innerHTML = `<div class='cont-header sub'>Touch</div>`
+    other.innerHTML = `<div class='cont-header sub'>Other</div>`
+    for (let action of actions) {
         let temp = document.createElement('img');
-        temp.setAttribute('src',`./assets/images/icons/${action.icon}`);
-        temp.setAttribute('class',`action-icon`);
-        temp.addEventListener('click',()=>{
-            pushOnStack(action,stack)
+        temp.setAttribute('src', `./assets/images/icons/${action.icon}`);
+        temp.setAttribute('class', `action-icon`);
+        temp.addEventListener('click', () => {
+            pushOnStack(action, stack)
         })
-        temp.addEventListener('mouseover',() => {
+        temp.addEventListener('mouseover', () => {
             document.querySelector('.name-display').innerHTML = action.name;
         });
-        temp.addEventListener('mouseout',() => {
+        temp.addEventListener('mouseout', () => {
             document.querySelector('.name-display').innerHTML = '';
         });
-        div.appendChild(temp);
+        if (action.type === 'synthesis') synthesis.appendChild(temp);
+        else if (action.type === 'touch') touch.appendChild(temp);
+        else other.appendChild(temp);
     }
+    div.appendChild(synthesis);
+    div.appendChild(touch);
+    div.appendChild(other);
     document.querySelector('.action-cont-actions').appendChild(div);
 }
 
-function attachControls(ctrls = document.createElement('div')){
+function attachControls(ctrls = document.createElement('div')) {
     let generate = document.createElement('input');
     let _delete = document.createElement('input');
     let clear = document.createElement('input');
@@ -93,44 +110,39 @@ function attachControls(ctrls = document.createElement('div')){
 
     generate.setAttribute('value', 'Generate');
     generate.setAttribute('type', 'button');
-    generate.addEventListener('click',() => {
-        textArea.innerHTML =`${generateMacro(stack)}`;
+    generate.addEventListener('click', () => {
+        textArea.innerHTML = `${generateMacro(stack)}`;
     });
     _delete.setAttribute('value', 'Delete');
     _delete.setAttribute('type', 'button');
-    _delete.addEventListener('click',() => {
+    _delete.addEventListener('click', () => {
         popOffStack(stack);
     });
     clear.setAttribute('value', 'Clear');
     clear.setAttribute('type', 'button');
-    clear.addEventListener('click',() => {
+    clear.addEventListener('click', () => {
         clearStack(stack)
     });
 
-    se_selection.setAttribute('class','se-selection-cont');
-    se_selection.innerHTML = '<label>Alert</label>'
-    se_msg.setAttribute('type','text');
-    se_msg.setAttribute('class','se-msg');
+    se_selection.setAttribute('class', 'se-selection-cont');
+    se_selection.innerHTML = '<label for="al-checkbox">Alert</label>'
+    se_msg.setAttribute('type', 'text');
+    se_msg.setAttribute('class', 'se-msg');
     se_msg.value = 'Macro Finished!';
-    se_dropdown.setAttribute('id','se#');
+    se_dropdown.setAttribute('id', 'se#');
 
-    se_dropdown.addEventListener('click',()=>{
-        console.log(se_dropdown.value);
-    })
-
-    for(let i = 0; i < 16; i++ ){
+    for (let i = 0; i < 16; i++) {
         let temp = document.createElement('option');
-        temp.setAttribute('value',`${i+1}`);
-        temp.innerHTML = i+1;
+        temp.setAttribute('value', `${i + 1}`);
+        temp.innerHTML = i + 1;
         se_dropdown.appendChild(temp);
     }
 
-    option.setAttribute('type','checkbox');
-    option.setAttribute('checked','');
-    option.setAttribute('class','ctrl-checkbox');
-    option.addEventListener('click',() =>{
-        console.log(option.checked);
-    })
+    option.setAttribute('type', 'checkbox');
+    option.setAttribute('id', 'al-checkbox');
+    option.setAttribute('checked', '');
+    option.setAttribute('class', 'ctrl-checkbox');
+
     se_selection.appendChild(option);
     se_selection.appendChild(se_msg);
     se_selection.appendChild(se_dropdown);
@@ -141,7 +153,12 @@ function attachControls(ctrls = document.createElement('div')){
     ctrls.appendChild(se_selection);
 }
 
-attachControls(controls);
-textArea.setAttribute('class','output');
-output.appendChild(textArea);
-actionList(ACTIONS);
+function render() {
+    attachControls(controls);
+    textArea.setAttribute('class', 'output');
+    output.appendChild(textArea);
+    actionList(ACTIONS);
+}
+
+render();
+

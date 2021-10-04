@@ -43,16 +43,10 @@ body{
     border: 1px solid lightgrey;
     background-color: rgba(0,0,0,.8);
     border-radius: 8px;
-    padding: 10px 20px 30px 20px;
+    padding: 10px 15px 30px 15px;
     margin-bottom: 20px;
 }
-.cont-header{
-    color: lightgray;
-    width: 100%;
-    padding-bottom: 3px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid lightgray;
-}
+
 .action-cont-actions{
     width: 100%;
 }
@@ -62,7 +56,7 @@ body{
     border: 1px solid lightgrey;
     background-color: rgba(0,0,0,.8);
     border-radius: 8px;
-    padding: 10px 20px 30px 20px;
+    padding: 10px 15px 30px 15px;
     margin-bottom: 20px;
 }
 .name-display{
@@ -127,7 +121,7 @@ body{
     border: 1px solid lightgrey;
     background-color: rgba(0,0,0,.8);
     border-radius: 8px;
-    padding: 10px 20px 30px 20px;
+    padding: 10px 15px 30px 15px;
     margin-bottom: 20px;
 }
 
@@ -143,4 +137,18 @@ body{
     color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
+}
+
+.cont-header{
+    color: lightgray;
+    /* width: 100%; */
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.sub{
+    font-size: 12px;
+    margin: 0px 6px;
+    margin-bottom: 10px;
 }
