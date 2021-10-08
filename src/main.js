@@ -34,12 +34,15 @@ function generateMacro(actions) {
     if (alert === true) maxLines = 14;
     for (let action of actions) {
         if ((line % maxLines === 0 && maxLines === 14) && macroNum > 1) {
-            string += `/echo ${document.querySelector(".se-msg").value} <se.${document.querySelector('#se\\#').value}>\n`
+            string += `/echo ${document.querySelector(".se-msg").value} <se.${document.querySelector('#se\\#').value}>\n`;
         }
         if (macroNum > 1 && line % maxLines === 0) { string += `\n` }
         if (line % maxLines === 0) { string = string + `Macro #${macroNum}\n\n`; macroNum++ }
         string = string + `/ac "${action.name}" <wait.${action.wait}>\n`
         line++;
+    }
+    if(line % maxLines != 0 && maxLines === 14){
+        string += `/echo ${document.querySelector(".se-msg").value} <se.${document.querySelector('#se\\#').value}>\n`;
     }
     return string;
 }
