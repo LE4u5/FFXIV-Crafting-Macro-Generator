@@ -157,3 +157,38 @@ body{
     margin: 0px 6px;
     margin-bottom: 10px;
 }
+
+@media only screen and ( max-width : 430px ){
+    .nav-bar{
+        font-size: 9px;
+    }
+    .app-col{
+        max-width: 85vw;
+        text-align: center;
+    }
+    .app-cont{
+        padding: 20px 10px;
+    }
+    .action-cont{
+        width: 85vw;
+    }
+    .selected-icons-cont{
+        width: 85vw;
+    }
+    .output-cont{
+        max-width: 85vw;
+        min-width: 85vw;
+    }
+    .action-icon{
+        height: 50px;
+    }
+    .controls-cont{
+        display: block;
+        height: 100px;
+        width: 85vw;
+    }
+    .se-selection-cont{
+        height: 35px;
+        margin-top: 20px;
+    }
+}
