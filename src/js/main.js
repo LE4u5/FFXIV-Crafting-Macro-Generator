@@ -61,6 +61,8 @@ function setSelectedList() {
         cont.appendChild(temp);
     }
     selected.appendChild(cont);
+    document.querySelector('.cp_count').innerHTML = `Total CP: ${totalCP(stack)}`;
+    console.log(totalCP(stack));
 }
 
 function totalCP(actions) {

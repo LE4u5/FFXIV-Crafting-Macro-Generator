@@ -1,1 +1,0 @@
-tar --exclude='*.bash' --exclude='*.bat' --exclude='*.gz' -czvf package.tar.gz ./
