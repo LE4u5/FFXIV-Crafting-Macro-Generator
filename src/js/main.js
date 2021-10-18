@@ -78,9 +78,9 @@ function actionList(actions) {
     let synthesis = document.createElement('div');
     let touch = document.createElement('div');
     let other = document.createElement('div');
-    synthesis.innerHTML = `<div class='cont-header sub'>Synthesis</div>`
-    touch.innerHTML = `<div class='cont-header sub'>Touch</div>`
-    other.innerHTML = `<div class='cont-header sub'>Other</div>`
+    synthesis.innerHTML = `<div class='cont-header sub'>Progression</div>`
+    touch.innerHTML = `<div class='cont-header sub'>Quality</div>`
+    other.innerHTML = `<div class='cont-header sub'>Buff</div>`
     for (let action of actions) {
         let temp = document.createElement('img');
         temp.setAttribute('src', `./assets/images/icons/${action.icon}`);
